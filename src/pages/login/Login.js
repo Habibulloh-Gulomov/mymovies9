@@ -22,19 +22,7 @@ export const Login = () => {
     .catch(function(err){
       console.log(err);
     })
-	// 	fetch(`https://reqres.in/api/login`, {
-	// 		method: 'POST',
-	// 		headers: {
-	// 			'Content-Type': 'application/json',
-	// 		},
-	// 		body: JSON.stringify({
-	// 			email: elEmail.current.value,
-	// 			password: elPassword.current.value,
-	// 		}),
-	// 	})
-	// 		.then((res) => res.json())
-	// 		.then((data) => console.log(data))
-	// 		.catch((err) => console.log(err));
+
 	};
 
 
@@ -67,7 +55,7 @@ export const Login = () => {
 const Wrapper = styled.div`
 	height: 100vh;
 	padding: 2rem;
-	background-color: orange;
+	background-color: pink;
 `;
 
 const Title = styled.h2`
@@ -77,6 +65,8 @@ const Title = styled.h2`
 `;
 
 const Form = styled.form`
+border:none;
+border-radius:10px;
 	width: 400px;
 	margin: 100px auto;
 	background-color: #fff;
