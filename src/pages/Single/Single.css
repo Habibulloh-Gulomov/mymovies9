@@ -1,0 +1,36 @@
+.box-cover{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.box{
+  margin: 0 auto;
+  background-color: rgb(195, 101, 117);
+  padding: 8px;
+  border-radius: 8px;
+  width: 700px;
+  text-align: center;
+  color: #fff;
+}
+
+.box-img{
+  border-radius: 8px;
+}
+.box-top,.box-bottom{
+  text-align: left;
+}
+
+.box-strong{
+  font-weight: 600;
+  color:#f87;
+}
+
+
+.box-stronglast{
+  font-weight: 700;
+  color:#f87;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
