@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Card } from '../../components/Card/Card';
-import styled from 'styled-components';
-import { PaginationMovie }  from '../../components/pagination/Pagination'
-export const Upcoming = () => {
-	const [movies, setMovies] = useState({
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom"
+import styled from "styled-components";
+import { Card } from "../../components/Card/Card";
+import { PaginationMovie } from "../../components/pagination/Pagination";
+
+export const Search = () =>{
+  const {searchQuery} = useParams()
+
+  const [movies, setMovies] = useState({
 		isLoading:true,
 		isError:false,
 		data:{},
@@ -15,10 +19,11 @@ export const Upcoming = () => {
 
 	useEffect(() => {
 		axios
-			.get('https://api.themoviedb.org/3/movie/upcoming', {
+			.get('https://api.themoviedb.org/3/search/movie', {
 				params: {
 					api_key: 'db6051e2af08e90ef09bfced7f5a8703',
 					page:activePage,
+          query:searchQuery,
 				},
 			})
 			.then((res) => setMovies({
@@ -32,12 +37,12 @@ export const Upcoming = () => {
 				isError:true,
 				...movies,
 			}));
-	}, [activePage]);
+	}, [activePage ,searchQuery]);
 
-	console.log(movies);
 
-	return (
-		<div>
+  return(
+    <>
+     <div>
 			{movies.data.length && (
 				<List>
 					{movies.data.map((e) => (
@@ -48,13 +53,12 @@ export const Upcoming = () => {
 		
 <PaginationMovie count={movies.totalPage} setActivePage={setActivePage}/>
 		</div>
-	);
-};
+    </>
+  )
+}
 
 const List = styled.ul`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
 `;
-
-

@@ -5,6 +5,7 @@ import { Popular } from './pages/Popular/Popular';
 import { Shows } from './pages/Shows/Shows';
 import { Single } from './pages/Single/Single';
 import { Upcoming } from './pages/Upcoming/Upcoming';
+import { Search } from './pages/Search/Search';
 
 export const Private = () => {
 	return (
@@ -16,6 +17,7 @@ export const Private = () => {
 				<Route path='/shows' element={<Shows />} />
 				<Route path='/upcoming' element={<Upcoming />} />
 				<Route path='/popular/:id' element={<Single />} />
+				<Route path='/search/:searchQuery' element={<Search/>} />
 			</Routes>
 		</>
 	);
